@@ -1,0 +1,25 @@
+{
+  "name": "food",
+  "version": "1.0.0",
+  "description": "food_page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russlandy/page_of_food_with_js.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "Ruslan_d",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russlandy/page_of_food_with_js/issues"
+  },
+  "homepage": "https://github.com/russlandy/page_of_food_with_js#readme",
+  "devDependencies": {
+    "json-server": "^0.4.2"
+  }
+}
