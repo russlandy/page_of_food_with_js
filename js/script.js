@@ -362,6 +362,18 @@ window.addEventListener('DOMContentLoaded', () => {
         dots.push(dot);
     }
 
+    function visibleDots(array) {
+        array.forEach(dot => dot.style.opacity = '.5');
+        array[slideIndex - 1].style.opacity = 1;
+    }
+
+    function numerationSlides (arr, index) {
+        if (arr.length < 10) {
+            current.textContent = `0${index}`;
+        } else {
+            current.textContent = index;
+        }
+    }
 
     next.addEventListener('click', () => {
         if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) {
@@ -377,15 +389,8 @@ window.addEventListener('DOMContentLoaded', () => {
         } else {
             slideIndex++;
         }
-
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
-
-        dots.forEach(dot => dot.style.opacity = '.5');
-        dots[slideIndex - 1].style.opacity = 1;
+        numerationSlides(slides, slideIndex);
+        visibleDots(dots);
     });
 
     prev.addEventListener('click', () => {
@@ -403,14 +408,8 @@ window.addEventListener('DOMContentLoaded', () => {
             slideIndex--;
         }
 
-        if (slides.length < 10) {
-            current.textContent = `0${slideIndex}`;
-        } else {
-            current.textContent = slideIndex;
-        }
-
-        dots.forEach(dot => dot.style.opacity = '.5');
-        dots[slideIndex - 1].style.opacity = 1;
+        numerationSlides(slides, slideIndex);
+        visibleDots(dots);
     });
 
     dots.forEach(dot => {
@@ -421,16 +420,8 @@ window.addEventListener('DOMContentLoaded', () => {
             offset = +width.slice(0, width.length - 2) * (slideTo - 1);
             slidesField.style.transform = `translateX(-${offset}px)`;
 
-            if (slides.length < 10) {
-                current.textContent = `0${slideIndex}`;
-            } else {
-                current.textContent = slideIndex;
-            }
-
-            dots.forEach(dot => dot.style.opacity = '.5');
-            dots[slideIndex - 1].style.opacity = 1;
-
-
+            numerationSlides(slides, slideIndex);
+            visibleDots(dots);
         });
     });
 
