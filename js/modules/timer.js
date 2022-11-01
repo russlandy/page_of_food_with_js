@@ -61,4 +61,4 @@ function timer(id, deadline) {
     setClock(id, deadline);
 }
 
-module.exports = timer;
+export default timer;
